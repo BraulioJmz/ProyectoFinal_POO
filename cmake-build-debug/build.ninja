@@ -61,6 +61,24 @@ build CMakeFiles/ProyectoFinal.dir/Empresa.cpp.obj: CXX_COMPILER__ProyectoFinal_
   OBJECT_DIR = CMakeFiles\ProyectoFinal.dir
   OBJECT_FILE_DIR = CMakeFiles\ProyectoFinal.dir
 
+build CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.obj: CXX_COMPILER__ProyectoFinal_unscanned_Debug D$:/PracticaProgramacion/POO/ProyectoFinal/Proyecto.cpp || cmake_object_order_depends_target_ProyectoFinal
+  DEP_FILE = CMakeFiles\ProyectoFinal.dir\Proyecto.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinal.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinal.dir
+
+build CMakeFiles/ProyectoFinal.dir/Designer.cpp.obj: CXX_COMPILER__ProyectoFinal_unscanned_Debug D$:/PracticaProgramacion/POO/ProyectoFinal/Designer.cpp || cmake_object_order_depends_target_ProyectoFinal
+  DEP_FILE = CMakeFiles\ProyectoFinal.dir\Designer.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinal.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinal.dir
+
+build CMakeFiles/ProyectoFinal.dir/Developer.cpp.obj: CXX_COMPILER__ProyectoFinal_unscanned_Debug D$:/PracticaProgramacion/POO/ProyectoFinal/Developer.cpp || cmake_object_order_depends_target_ProyectoFinal
+  DEP_FILE = CMakeFiles\ProyectoFinal.dir\Developer.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoFinal.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoFinal.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProyectoFinal
@@ -69,7 +87,7 @@ build CMakeFiles/ProyectoFinal.dir/Empresa.cpp.obj: CXX_COMPILER__ProyectoFinal_
 #############################################
 # Link the executable ProyectoFinal.exe
 
-build ProyectoFinal.exe: CXX_EXECUTABLE_LINKER__ProyectoFinal_Debug CMakeFiles/ProyectoFinal.dir/main.cpp.obj CMakeFiles/ProyectoFinal.dir/Empresa.cpp.obj
+build ProyectoFinal.exe: CXX_EXECUTABLE_LINKER__ProyectoFinal_Debug CMakeFiles/ProyectoFinal.dir/main.cpp.obj CMakeFiles/ProyectoFinal.dir/Empresa.cpp.obj CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.obj CMakeFiles/ProyectoFinal.dir/Designer.cpp.obj CMakeFiles/ProyectoFinal.dir/Developer.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProyectoFinal.dir

@@ -34,8 +34,6 @@ Proyecto *Empresa::buscarProyecto(int idProyecto) {
         if (proyectos[i]->getIdProyecto() == idProyecto) {
             return proyectos[i];
         }
-        else {
-            return nullptr;
-        }
     }
+    return nullptr;
 }

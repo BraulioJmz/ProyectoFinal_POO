@@ -8,7 +8,4 @@ add_executable(ProyectoFinal main.cpp
         Empresa.h
         Proyecto.cpp
         Proyecto.h
-        Designer.cpp
-        Designer.h
-        Developer.cpp
-        Developer.h)
+)

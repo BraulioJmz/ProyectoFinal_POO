@@ -27,5 +27,7 @@ int main() {
     empresa1.eliminarProyecto(1002);
     empresa1.mostrarProyectos();
 
+    cout << "Hola mundo " << endl;
+
     return 0;
 }

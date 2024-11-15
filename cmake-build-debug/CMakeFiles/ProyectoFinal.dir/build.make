@@ -111,41 +111,41 @@ CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Proyecto.cpp" -o CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.s
 
-CMakeFiles/ProyectoFinal.dir/Designer.cpp.o: CMakeFiles/ProyectoFinal.dir/flags.make
-CMakeFiles/ProyectoFinal.dir/Designer.cpp.o: /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Designer.cpp
-CMakeFiles/ProyectoFinal.dir/Designer.cpp.o: CMakeFiles/ProyectoFinal.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProyectoFinal.dir/Designer.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoFinal.dir/Designer.cpp.o -MF CMakeFiles/ProyectoFinal.dir/Designer.cpp.o.d -o CMakeFiles/ProyectoFinal.dir/Designer.cpp.o -c "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Designer.cpp"
+CMakeFiles/ProyectoFinal.dir/Programador.cpp.o: CMakeFiles/ProyectoFinal.dir/flags.make
+CMakeFiles/ProyectoFinal.dir/Programador.cpp.o: /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Programador.cpp
+CMakeFiles/ProyectoFinal.dir/Programador.cpp.o: CMakeFiles/ProyectoFinal.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProyectoFinal.dir/Programador.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoFinal.dir/Programador.cpp.o -MF CMakeFiles/ProyectoFinal.dir/Programador.cpp.o.d -o CMakeFiles/ProyectoFinal.dir/Programador.cpp.o -c "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Programador.cpp"
 
-CMakeFiles/ProyectoFinal.dir/Designer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectoFinal.dir/Designer.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Designer.cpp" > CMakeFiles/ProyectoFinal.dir/Designer.cpp.i
+CMakeFiles/ProyectoFinal.dir/Programador.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectoFinal.dir/Programador.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Programador.cpp" > CMakeFiles/ProyectoFinal.dir/Programador.cpp.i
 
-CMakeFiles/ProyectoFinal.dir/Designer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectoFinal.dir/Designer.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Designer.cpp" -o CMakeFiles/ProyectoFinal.dir/Designer.cpp.s
+CMakeFiles/ProyectoFinal.dir/Programador.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectoFinal.dir/Programador.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Programador.cpp" -o CMakeFiles/ProyectoFinal.dir/Programador.cpp.s
 
-CMakeFiles/ProyectoFinal.dir/Developer.cpp.o: CMakeFiles/ProyectoFinal.dir/flags.make
-CMakeFiles/ProyectoFinal.dir/Developer.cpp.o: /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Developer.cpp
-CMakeFiles/ProyectoFinal.dir/Developer.cpp.o: CMakeFiles/ProyectoFinal.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProyectoFinal.dir/Developer.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoFinal.dir/Developer.cpp.o -MF CMakeFiles/ProyectoFinal.dir/Developer.cpp.o.d -o CMakeFiles/ProyectoFinal.dir/Developer.cpp.o -c "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Developer.cpp"
+CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o: CMakeFiles/ProyectoFinal.dir/flags.make
+CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o: /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Disenador.cpp
+CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o: CMakeFiles/ProyectoFinal.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o -MF CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o.d -o CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o -c "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Disenador.cpp"
 
-CMakeFiles/ProyectoFinal.dir/Developer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectoFinal.dir/Developer.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Developer.cpp" > CMakeFiles/ProyectoFinal.dir/Developer.cpp.i
+CMakeFiles/ProyectoFinal.dir/Disenador.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectoFinal.dir/Disenador.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Disenador.cpp" > CMakeFiles/ProyectoFinal.dir/Disenador.cpp.i
 
-CMakeFiles/ProyectoFinal.dir/Developer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectoFinal.dir/Developer.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Developer.cpp" -o CMakeFiles/ProyectoFinal.dir/Developer.cpp.s
+CMakeFiles/ProyectoFinal.dir/Disenador.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectoFinal.dir/Disenador.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/Disenador.cpp" -o CMakeFiles/ProyectoFinal.dir/Disenador.cpp.s
 
 # Object files for target ProyectoFinal
 ProyectoFinal_OBJECTS = \
 "CMakeFiles/ProyectoFinal.dir/main.cpp.o" \
 "CMakeFiles/ProyectoFinal.dir/Empresa.cpp.o" \
 "CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.o" \
-"CMakeFiles/ProyectoFinal.dir/Designer.cpp.o" \
-"CMakeFiles/ProyectoFinal.dir/Developer.cpp.o"
+"CMakeFiles/ProyectoFinal.dir/Programador.cpp.o" \
+"CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o"
 
 # External object files for target ProyectoFinal
 ProyectoFinal_EXTERNAL_OBJECTS =
@@ -153,8 +153,8 @@ ProyectoFinal_EXTERNAL_OBJECTS =
 ProyectoFinal: CMakeFiles/ProyectoFinal.dir/main.cpp.o
 ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Empresa.cpp.o
 ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Proyecto.cpp.o
-ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Designer.cpp.o
-ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Developer.cpp.o
+ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Programador.cpp.o
+ProyectoFinal: CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o
 ProyectoFinal: CMakeFiles/ProyectoFinal.dir/build.make
 ProyectoFinal: CMakeFiles/ProyectoFinal.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/adrianvera/Documents/Proyecto Noé/ProyectoFinal_POO/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ProyectoFinal"

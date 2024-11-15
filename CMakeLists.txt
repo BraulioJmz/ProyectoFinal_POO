@@ -8,4 +8,8 @@ add_executable(ProyectoFinal main.cpp
         Empresa.h
         Proyecto.cpp
         Proyecto.h
+        Programador.cpp
+        Programador.h
+        Disenador.cpp
+        Disenador.h
 )

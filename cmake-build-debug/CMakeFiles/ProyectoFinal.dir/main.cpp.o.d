@@ -958,5 +958,5 @@ CMakeFiles/ProyectoFinal.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk/usr/include/unistd.h \
   /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Empresa.h \
   /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Proyecto.h \
-  /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Designer.h \
-  /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Developer.h
+  /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Disenador.h \
+  /Users/adrianvera/Documents/Proyecto\ Noé/ProyectoFinal_POO/Programador.h

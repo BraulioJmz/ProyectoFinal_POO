@@ -129,53 +129,29 @@ ProyectoFinal/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/build
 .PHONY : ProyectoFinal/fast
 
-Designer.o: Designer.cpp.o
-.PHONY : Designer.o
+Disenador.o: Disenador.cpp.o
+.PHONY : Disenador.o
 
 # target to build an object file
-Designer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Designer.cpp.o
-.PHONY : Designer.cpp.o
+Disenador.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Disenador.cpp.o
+.PHONY : Disenador.cpp.o
 
-Designer.i: Designer.cpp.i
-.PHONY : Designer.i
-
-# target to preprocess a source file
-Designer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Designer.cpp.i
-.PHONY : Designer.cpp.i
-
-Designer.s: Designer.cpp.s
-.PHONY : Designer.s
-
-# target to generate assembly for a file
-Designer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Designer.cpp.s
-.PHONY : Designer.cpp.s
-
-Developer.o: Developer.cpp.o
-.PHONY : Developer.o
-
-# target to build an object file
-Developer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Developer.cpp.o
-.PHONY : Developer.cpp.o
-
-Developer.i: Developer.cpp.i
-.PHONY : Developer.i
+Disenador.i: Disenador.cpp.i
+.PHONY : Disenador.i
 
 # target to preprocess a source file
-Developer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Developer.cpp.i
-.PHONY : Developer.cpp.i
+Disenador.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Disenador.cpp.i
+.PHONY : Disenador.cpp.i
 
-Developer.s: Developer.cpp.s
-.PHONY : Developer.s
+Disenador.s: Disenador.cpp.s
+.PHONY : Disenador.s
 
 # target to generate assembly for a file
-Developer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Developer.cpp.s
-.PHONY : Developer.cpp.s
+Disenador.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Disenador.cpp.s
+.PHONY : Disenador.cpp.s
 
 Empresa.o: Empresa.cpp.o
 .PHONY : Empresa.o
@@ -200,6 +176,30 @@ Empresa.s: Empresa.cpp.s
 Empresa.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Empresa.cpp.s
 .PHONY : Empresa.cpp.s
+
+Programador.o: Programador.cpp.o
+.PHONY : Programador.o
+
+# target to build an object file
+Programador.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Programador.cpp.o
+.PHONY : Programador.cpp.o
+
+Programador.i: Programador.cpp.i
+.PHONY : Programador.i
+
+# target to preprocess a source file
+Programador.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Programador.cpp.i
+.PHONY : Programador.cpp.i
+
+Programador.s: Programador.cpp.s
+.PHONY : Programador.s
+
+# target to generate assembly for a file
+Programador.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectoFinal.dir/build.make CMakeFiles/ProyectoFinal.dir/Programador.cpp.s
+.PHONY : Programador.cpp.s
 
 Proyecto.o: Proyecto.cpp.o
 .PHONY : Proyecto.o
@@ -258,15 +258,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ProyectoFinal"
-	@echo "... Designer.o"
-	@echo "... Designer.i"
-	@echo "... Designer.s"
-	@echo "... Developer.o"
-	@echo "... Developer.i"
-	@echo "... Developer.s"
+	@echo "... Disenador.o"
+	@echo "... Disenador.i"
+	@echo "... Disenador.s"
 	@echo "... Empresa.o"
 	@echo "... Empresa.i"
 	@echo "... Empresa.s"
+	@echo "... Programador.o"
+	@echo "... Programador.i"
+	@echo "... Programador.s"
 	@echo "... Proyecto.o"
 	@echo "... Proyecto.i"
 	@echo "... Proyecto.s"

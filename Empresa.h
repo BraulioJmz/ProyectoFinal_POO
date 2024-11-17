@@ -1,6 +1,9 @@
 #ifndef EMPRESA_H
 #define EMPRESA_H
+
 #include <iostream>
+#include <vector>
+
 #include "Proyecto.h"
 using namespace std;
 

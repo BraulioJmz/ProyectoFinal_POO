@@ -12,4 +12,6 @@ add_executable(ProyectoFinal main.cpp
         Programador.h
         Disenador.cpp
         Disenador.h
+        Trabajador.cpp
+        Trabajador.h
 )

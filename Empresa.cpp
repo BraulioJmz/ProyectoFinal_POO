@@ -8,6 +8,7 @@ Empresa::Empresa(string nombreEmpresa) {
 //Gets y Setters
 string Empresa::getNombreEmpresa() {
     return nombreEmpresa;}
+
 void Empresa::setNombreEmpresa(string nombreEmpresa) {
     this -> nombreEmpresa = nombreEmpresa;
 }

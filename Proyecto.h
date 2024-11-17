@@ -1,6 +1,9 @@
 #ifndef PROYECTO_H
 #define PROYECTO_H
+
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 class Proyecto {

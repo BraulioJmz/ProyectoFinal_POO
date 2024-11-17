@@ -7,44 +7,98 @@
 
 //Declaracion de funciones
 void menuPrincipal();
+void menuProyectos();
+void menuTrabajadores();
+void despedida();
 
 using namespace std;
 
 int main() {
-    Empresa empresa1("BRUAL");
+    int opc,opc_2;
+    Empresa empresa("BRUAL");
 
-    Proyecto* proyecto1 = new Proyecto("Tiras LED", 1);
-    Proyecto* proyecto2 = new Proyecto("Gorras", 2);
+    do {
+        opc = 0;
+        opc_2 = 0;
+        menuPrincipal();
+        cin >> opc;
 
-    Disenador dis1("Jose",1500.00,1234,"Photoshop","Logos");
-    Programador prog1("Braulio", 20000.00, 1111, "C++", "Algoritmos");
+        switch (opc) {
+            case 1:
+                menuProyectos();
+                cin >> opc_2;
 
-    empresa1.anadirProyecto(proyecto1);
-    empresa1.anadirProyecto(proyecto2);
+                switch (opc_2) {
+                    case 1:
+                        empresa.anadirProyecto();
+                        break;
+                    case 2:
+                        empresa.buscarProyecto();
+                        break;
+                    case 3:
+                        empresa.eliminarProyecto();
+                        break;;
+                    case 4:
+                        empresa.mostrarProyectos();
+                        break;
+                    case 5:
+                        cout << endl << "Regresando al menu principal..." << endl;
+                        break;
+                    default:
+                        cout << endl << "Opcion invalida!" << endl;
+                        break;
+                }
+                break;
+            case 2:
+                menuTrabajadores();
 
-    empresa1.mostrarProyectos();
-
-    Proyecto* encontrado = empresa1.buscarProyecto(1);
-    if (encontrado) {
-        cout << "Proyecto encontrado: " << encontrado->getNombreProyecto() << endl;
-    } else {
-        cout << "Proyecto no encontrado." << endl;
-    }
-
-    empresa1.eliminarProyecto(1002);
-    empresa1.mostrarProyectos();
-
-    cout << "Hola mundo " << endl;
-
-    dis1.trabajar();
-    prog1.trabajar();
-
-    return 0;
+                break;
+            case 3:
+                despedida();
+                break;
+            default:
+                cout << endl << "Opcion invalida!" << endl;
+                break;
+        }
+    } while(opc!=3);
 }
 
 //Implementacion de funciones
 
+//Función para el menu principal
 void menuPrincipal() {
-    cout << "Oracle" << endl;
-    cout << "Sistema de gestion de proyectos y trabajadores" << endl;
+    cout << endl << "Menu Principal" << endl;
+    cout << "1. Manipular proyectos" << endl;
+    cout << "2. Manipular trabajadores" << endl;
+    cout << "3. Salir del programa" << endl;
+    cout << "Dame una opcion: " ;
+}
+
+//Función para el menu de proyectos
+void menuProyectos() {
+    cout << endl << "Menu Proyectos" << endl;
+    cout << "1. Dar de alta un proyecto" << endl;
+    cout << "2. Buscar un proyecto" << endl;
+    cout << "3. Dar de baja un proyecto" << endl;
+    cout << "4. Mostrar todos los proyectos" << endl;
+    cout << "5. Salir al menu principal" << endl;
+    cout << "Dame una opcion: " ;
+}
+
+//Función para el menu de trabajadores
+void menuTrabajadores() {
+    cout << endl << "Menu Trabajadores" << endl;
+    cout << "1. Dar de alta un trabajador" << endl;
+    cout << "2. Buscar un trabajador" << endl;
+    cout << "3. Dar de baja un trabajador" << endl;
+    cout << "4. Salir al menu principal" << endl;
+    cout << "Dame una opcion: " ;
+}
+
+//Función para la despedida
+void despedida() {
+    cout << endl << "Gracias por usar el programa" << endl;
+    cout << "Version 1.0" << endl;
+    cout << "Alberto Adrian Vera Ruiz" << endl;
+    cout << "Braulio Jimenez Chavez" << endl;
 }

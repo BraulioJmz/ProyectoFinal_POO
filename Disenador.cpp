@@ -7,10 +7,12 @@ Disenador::Disenador(string nombre, float salario, int idTrabajador, string herr
     this -> tipoDiseno = tipoDiseno;
 }
 
-//Funcion de polimorfismo
+//Funcion de polimorfismo trabajar
 void Disenador::trabajar() {
-    cout << "El diseñador "<< nombre << "trabaja en " << herramientaDiseno  << endl;
+    cout << "El designer "<< nombre << " trabaja en " << herramientaDiseno  << endl;
 }
+
+//Metodos get y set
 
 string Disenador::getHerramientaDiseno() {
     return herramientaDiseno;

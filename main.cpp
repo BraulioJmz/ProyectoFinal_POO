@@ -5,6 +5,9 @@
 #include "Disenador.h"
 #include "Programador.h"
 
+//Declaracion de funciones
+void menuPrincipal();
+
 using namespace std;
 
 int main() {
@@ -12,6 +15,9 @@ int main() {
 
     Proyecto* proyecto1 = new Proyecto("Tiras LED", 1);
     Proyecto* proyecto2 = new Proyecto("Gorras", 2);
+
+    Disenador dis1("Jose",1500.00,1234,"Photoshop","Logos");
+    Programador prog1("Braulio", 20000.00, 1111, "C++", "Algoritmos");
 
     empresa1.anadirProyecto(proyecto1);
     empresa1.anadirProyecto(proyecto2);
@@ -30,5 +36,15 @@ int main() {
 
     cout << "Hola mundo " << endl;
 
+    dis1.trabajar();
+    prog1.trabajar();
+
     return 0;
+}
+
+//Implementacion de funciones
+
+void menuPrincipal() {
+    cout << "Oracle" << endl;
+    cout << "Sistema de gestion de proyectos y trabajadores" << endl;
 }

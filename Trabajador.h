@@ -6,6 +6,8 @@
 
 using namespace std;
 
+//Clase padre de Diseñador y Programador
+
 class Trabajador {
 //Atributos de la clase padre
 protected:
@@ -15,7 +17,10 @@ protected:
 
 public:
     //Constructor
-    Trabajador(string, float, int);
+    Trabajador(string nombre, float salario, int idTrabajador);
+
+    //Uso de polimorfismo
+    virtual void trabajar() = 0;
 
     //Metodos get y set
     string getNombre();
@@ -26,7 +31,5 @@ public:
     void setSalario(float salario);
     void setIdTrabajador(int idTrabajador);
 };
-
-
 
 #endif //TRABAJADOR_H

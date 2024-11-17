@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Empresa.h"
 #include "Proyecto.h"
+#include "Trabajador.h"
 #include "Disenador.h"
 #include "Programador.h"
 

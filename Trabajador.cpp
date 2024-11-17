@@ -1,7 +1,7 @@
 #include "Trabajador.h"
 
 //Constructor
-Trabajador::Trabajador(string, float, int) {
+Trabajador::Trabajador(string nombre, float salario, int idTrabajador) {
     this -> nombre = nombre;
     this -> salario = salario;
     this -> idTrabajador = idTrabajador;

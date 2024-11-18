@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+
 #include "Empresa.h"
 #include "Proyecto.h"
 #include "Trabajador.h"
@@ -25,29 +27,30 @@ int main() {
 
         switch (opc) {
             case 1:
-                menuProyectos();
-                cin >> opc_2;
+                do {
+                    menuProyectos();
+                    cin >> opc_2;
 
-                switch (opc_2) {
-                    case 1:
-                        empresa.anadirProyecto();
+                    switch (opc_2) {
+                        case 1:
+                            empresa.anadirProyecto();
                         break;
-                    case 2:
-                        empresa.buscarProyecto();
+                        case 2:
+                            empresa.buscarProyecto();
                         break;
-                    case 3:
-                        empresa.eliminarProyecto();
+                        case 3:
+                            empresa.eliminarProyecto();
                         break;;
-                    case 4:
-                        empresa.mostrarProyectos();
+                        case 4:
+                            empresa.mostrarProyectos();
                         break;
-                    case 5:
-                        cout << endl << "Regresando al menu principal..." << endl;
+                        case 5:
+                            break;
+                        default:
+                            cout << endl << "Opcion invalida!" << endl;
                         break;
-                    default:
-                        cout << endl << "Opcion invalida!" << endl;
-                        break;
-                }
+                    }
+                } while (opc != 5);
                 break;
             case 2:
                 menuTrabajadores();
@@ -67,16 +70,18 @@ int main() {
 
 //Función para el menu principal
 void menuPrincipal() {
-    cout << endl << "Menu Principal" << endl;
-    cout << "1. Manipular proyectos" << endl;
-    cout << "2. Manipular trabajadores" << endl;
+    cout << endl << "Sistema de gestion empresa Tech" << endl;
+    cout << "---------Menu Principal---------" << endl;
+    cout << "1. Proyectos" << endl;
+    cout << "2. Trabajadores" << endl;
     cout << "3. Salir del programa" << endl;
-    cout << "Dame una opcion: " ;
+    cout << "Dame una opcion: ";
 }
 
 //Función para el menu de proyectos
 void menuProyectos() {
-    cout << endl << "Menu Proyectos" << endl;
+    cout << endl << "Menu | Proyectos" << endl;
+    cout << "------------------" << endl;
     cout << "1. Dar de alta un proyecto" << endl;
     cout << "2. Buscar un proyecto" << endl;
     cout << "3. Dar de baja un proyecto" << endl;
@@ -87,7 +92,8 @@ void menuProyectos() {
 
 //Función para el menu de trabajadores
 void menuTrabajadores() {
-    cout << endl << "Menu Trabajadores" << endl;
+    cout << endl << "Menu | Trabajadores" << endl;
+    cout << "------------------" << endl;
     cout << "1. Dar de alta un trabajador" << endl;
     cout << "2. Buscar un trabajador" << endl;
     cout << "3. Dar de baja un trabajador" << endl;

@@ -15,18 +15,38 @@ void Empresa::setNombreEmpresa(string nombreEmpresa) {
 //Métodos para manipular proyectos
 void Empresa::anadirProyecto() {
     string nombre;
-    int id;
+    int id, flag = 0;
 
-    cout << endl << "Dar de alta proyecto" << endl;
+    cout << endl << "Dar de alta proyecto..." << endl;
+
+    //Limpieza de bufer de entrada
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
     cout << "Ingrese el nombre del proyecto: ";
-    cin >> nombre;
+    getline(cin, nombre);
+
     cout << "Ingrese el ID del proyecto: ";
     cin >> id;
-    proyectos.push_back(new Proyecto(nombre,id));
+
+    for (int i = 0; i < proyectos.size(); i++) {
+        if(proyectos[i]->getIdProyecto() == id) {
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag == 1) {
+        cout << "\nEl ID ingresado ya pertenece a un proyecto" << endl;
+    }
+    else {
+        proyectos.push_back(new Proyecto(nombre,id));
+    }
 }
+
+
 void Empresa::eliminarProyecto() {
     int id,flag=0;
-    cout << endl << "Eliminar un proyecto" << endl;
+    cout << endl << "Eliminar un proyecto..." << endl;
     cout << "Ingrese el ID del proyecto: ";
     cin >> id;
 
@@ -45,6 +65,7 @@ void Empresa::eliminarProyecto() {
         cout << "Proyecto no encontrado." << endl;
     }
 }
+
 void Empresa::mostrarProyectos() {
     cout << endl << "Mostrar todos los proyectos" << endl;
     for (int i = 0; i < proyectos.size(); i++) {
@@ -52,6 +73,7 @@ void Empresa::mostrarProyectos() {
         cout << "Nombre: " << proyectos[i]->getNombreProyecto() << endl << endl;
     }
 }
+
 Proyecto *Empresa::buscarProyecto() {
     int id;
     cout << endl << "Buscar un proyecto" << std::endl;

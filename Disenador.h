@@ -20,6 +20,9 @@ public:
     //Polimorfismo
     void trabajar() override;
 
+    //Sobrecarga del operador de entrada con polimorfismo
+    istream& leer(istream &in) override;
+
     //Metodos get y set
     string getHerramientaDiseno();
     string getTipoDiseno();

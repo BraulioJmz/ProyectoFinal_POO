@@ -12,6 +12,19 @@ void Disenador::trabajar() {
     cout << "El designer "<< nombre << " trabaja en " << herramientaDiseno  << endl;
 }
 
+//Sobrecarga del operador de entrada con polimorfismo
+istream& Disenador::leer(istream &in) {
+    Trabajador::leer(in);
+    cout << "Herramienta design: ";
+    in.ignore();
+    getline(cin, herramientaDiseno);
+
+    cout << "Tipo de design: ";
+    getline(cin, tipoDiseno);
+
+    return in;
+}
+
 //Metodos get y set
 
 string Disenador::getHerramientaDiseno() {

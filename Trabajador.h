@@ -21,6 +21,9 @@ public:
 
     //Uso de polimorfismo
     virtual void trabajar() = 0;
+    virtual void ingresarTrabajador() = 0; //Pendiente de implementacion
+
+    virtual istream& leer(istream& in);
 
     //Metodos get y set
     string getNombre();

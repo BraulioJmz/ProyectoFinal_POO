@@ -12,6 +12,18 @@ void Programador::trabajar() {
     cout << "El programador " << nombre << " trabaja en " << lenguaje << endl;
 }
 
+istream& Programador::leer(istream &in) {
+    Trabajador::leer(in);
+    cout << "Lenguaje programacion: ";
+    in.ignore();
+    getline(cin, lenguaje);
+
+    cout << "Especializacion: ";
+    getline(cin, especializacion);
+
+    return in;
+}
+
 //Metodos get y set
 
 string Programador::getLenguaje() {

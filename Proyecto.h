@@ -1,6 +1,6 @@
 #ifndef PROYECTO_H
 #define PROYECTO_H
-
+#include "Trabajador.h"
 #include <iostream>
 #include <string>
 
@@ -11,6 +11,7 @@ class Proyecto {
     private:
     string nombreProyecto;
     int idProyecto;
+    vector <Trabajador*> trabajadores;
 
     public:
     //Constructor
@@ -21,6 +22,11 @@ class Proyecto {
     int getIdProyecto();
     void setNombreProyecto(string);
     void setIdProyecto(int);
+
+    //Métodos para manipular proyectos
+    void anadirTrabajador(Trabajador*);
+    void eliminarTrabajador(int);
+    Trabajador* buscarTrabajador(int);
 };
 
 #endif //PROYECTO_H

@@ -22,10 +22,10 @@ class Empresa {
     void setNombreEmpresa(string);
 
     //Métodos para manipular proyectos
-    void anadirProyecto(Proyecto*);
-    void eliminarProyecto(int);
+    void anadirProyecto();
+    void eliminarProyecto();
     void mostrarProyectos();
-    Proyecto* buscarProyecto(int);
+    Proyecto* buscarProyecto();
 };
 
 #endif //EMPRESA_H

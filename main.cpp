@@ -10,18 +10,22 @@
 //Declaracion de funciones
 void menuPrincipal();
 void menuProyectos();
+
 void menuTrabajadores();
+void menuAddTrabajador();
 void despedida();
 
 using namespace std;
 
 int main() {
-    int opc,opc_2;
+    int opc, opc_2, opc_3;
     Empresa empresa("BRUAL");
 
     do {
         opc = 0;
         opc_2 = 0;
+        opc_3 = 0;
+
         menuPrincipal();
         cin >> opc;
 
@@ -50,12 +54,33 @@ int main() {
                             cout << endl << "Opcion invalida!" << endl;
                         break;
                     }
-                } while (opc != 5);
+                } while (opc_2 != 5);
                 break;
+
             case 2:
                 menuTrabajadores();
+                cin >> opc_2;
+
+                switch (opc_2) {
+                    case 1:
+                        menuAddTrabajador();
+                        cin >> opc_3;
+                            switch (opc_3) {
+                                case 1:
+                                    cout << "Ingresando designer" << endl;
+                                    break;
+                                case 2:
+                                    cout << "Ingresando programador" << endl;
+                                    break;
+
+                                default:
+                                    cout << "Opcion invalida!" << endl;
+                                    break;
+                            }
+                }
 
                 break;
+
             case 3:
                 despedida();
                 break;
@@ -99,6 +124,12 @@ void menuTrabajadores() {
     cout << "3. Dar de baja un trabajador" << endl;
     cout << "4. Salir al menu principal" << endl;
     cout << "Dame una opcion: " ;
+}
+
+void menuAddTrabajador() {
+    cout << "\nDar de alta trabajador..." << endl;
+    cout << "1. Designer" << endl;
+    cout << "2. Programador" << endl;
 }
 
 //Función para la despedida

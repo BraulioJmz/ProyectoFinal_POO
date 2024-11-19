@@ -14,6 +14,7 @@ private:
 
 public:
     //Constructor
+    Programador();
     Programador(string nombre, float salario, int idTrabajador, string lenguaje,
         string especializacion);
 
@@ -22,6 +23,7 @@ public:
 
     //Sobrecarga del operador de entrada con polimorfismo
     istream& leer(istream &in) override;
+    friend istream& operator>>(istream& in, Programador& developer);
 
     //Metodos get y set
     string getLenguaje();

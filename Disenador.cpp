@@ -1,6 +1,9 @@
 #include "Disenador.h"
 #include "Trabajador.h"
 
+Disenador::Disenador(): Trabajador("", 0.0f, 0),
+herramientaDiseno(""), tipoDiseno("") {}
+
 Disenador::Disenador(string nombre, float salario, int idTrabajador, string herramientaDiseno,
     string tipoDiseno) : Trabajador(nombre, salario, idTrabajador) {
     this -> herramientaDiseno = herramientaDiseno;
@@ -13,6 +16,7 @@ void Disenador::trabajar() {
 }
 
 //Sobrecarga del operador de entrada con polimorfismo
+
 istream& Disenador::leer(istream &in) {
     Trabajador::leer(in);
     cout << "Herramienta design: ";
@@ -22,6 +26,11 @@ istream& Disenador::leer(istream &in) {
     cout << "Tipo de design: ";
     getline(cin, tipoDiseno);
 
+    return in;
+}
+
+istream& operator>>(istream& in, Disenador& designer) {
+    designer.leer(in);
     return in;
 }
 

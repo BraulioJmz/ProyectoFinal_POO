@@ -12,6 +12,7 @@ void menuPrincipal();
 void menuProyectos();
 
 void menuTrabajadores();
+void menuElegirProyectos();
 void menuAddTrabajador();
 void despedida();
 
@@ -19,6 +20,8 @@ using namespace std;
 
 int main() {
     int opc, opc_2, opc_3;
+    int ID;
+    int flag = 0;
     Empresa empresa("BRUAL");
 
     do {
@@ -30,7 +33,7 @@ int main() {
         cin >> opc;
 
         switch (opc) {
-            case 1:
+            case 1: //Seleccionar acciones con PROYECTOS
                 do {
                     menuProyectos();
                     cin >> opc_2;
@@ -57,28 +60,62 @@ int main() {
                 } while (opc_2 != 5);
                 break;
 
-            case 2:
+            case 2:  //Seleccionar acciones con TRABAJADORES
                 menuTrabajadores();
                 cin >> opc_2;
 
                 switch (opc_2) {
-                    case 1:
+                    case 1: //Añadir trabajadores a un proyecto
+                        menuElegirProyectos(); //Seleccionar a que proyecto
+                        cin >> ID; cin.ignore();
+
+                        int indexProyecto = -1;
+                        const vector<Proyecto*>& proyectos = empresa.getProyectos();
+
+                        for(int i = 0; i < proyectos.size(); i++ ) {
+                        if(ID == proyectos[i]->getIdProyecto()) {
+                            flag = 1;
+                            indexProyecto = i;
+                            break;   //Verificar si existe el ID del proyecto
+                        }
+                    }
+                    if(flag == 1) {
                         menuAddTrabajador();
                         cin >> opc_3;
-                            switch (opc_3) {
-                                case 1:
-                                    cout << "Ingresando designer" << endl;
-                                    break;
-                                case 2:
-                                    cout << "Ingresando programador" << endl;
-                                    break;
 
-                                default:
-                                    cout << "Opcion invalida!" << endl;
-                                    break;
+                        switch (opc_3) {
+                            case 1: { //Ingresar diseñadores
+                                cout << "\nIngresando designer..." << endl;
+                                Disenador* designer = new Disenador(); //Crear diseñador
+                                cin >> *designer; //Utilizar sobrecarga para agregar
+
+                                //Agregar trabajador al proyecto encontrado
+                                proyectos[indexProyecto]-> anadirTrabajador(designer);
+                                cout << "\nTrabajador agregado correctamente" << endl;
+                                break;
                             }
-                }
 
+                            case 2: {
+                                //Ingresar programadores
+                                cout << "\nIngresando programador..." << endl;
+                                Programador* developer = new Programador(); //Crear programador
+                                cin >> *developer; //Utilizar sobrecarga para agregar
+
+                                //Agregar trabajador al proyecto encontrado
+                                proyectos[indexProyecto]-> anadirTrabajador(developer);
+                                cout << "\nTrabajador agregado correctamente" << endl;
+                                break;
+                            }
+
+                            default:
+                                cout << "Opcion invalida!" << endl;
+                            break;
+                        }
+                    }
+                    else {
+                        cout << "\nProyecto no encontrado" << endl;
+                    }
+                }
                 break;
 
             case 3:
@@ -126,10 +163,16 @@ void menuTrabajadores() {
     cout << "Dame una opcion: " ;
 }
 
+void menuElegirProyectos() {
+    cout << "\nA que proyecto agregar el trabajador?" << endl;
+    cout << "Ingrese el ID del proyecto: ";
+}
+
 void menuAddTrabajador() {
     cout << "\nDar de alta trabajador..." << endl;
     cout << "1. Designer" << endl;
     cout << "2. Programador" << endl;
+    cout << "Dame una opcion: " ;
 }
 
 //Función para la despedida

@@ -12,6 +12,9 @@ string Empresa::getNombreEmpresa() {
 void Empresa::setNombreEmpresa(string nombreEmpresa) {
     this -> nombreEmpresa = nombreEmpresa;
 }
+const vector <Proyecto*>& Empresa::getProyectos() {
+    return proyectos;
+}
 //Métodos para manipular proyectos
 void Empresa::anadirProyecto() {
     string nombre;

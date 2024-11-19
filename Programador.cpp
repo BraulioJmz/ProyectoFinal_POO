@@ -1,6 +1,9 @@
 #include "Programador.h"
 #include "Trabajador.h"
 
+Programador::Programador() : Trabajador("",0.0f,0),
+lenguaje(""), especializacion(""){}
+
 Programador::Programador(string nombre, float salario, int idTrabajador, string lenguaje,
     string especializacion) :Trabajador(nombre, salario, idTrabajador) {
     this -> lenguaje = lenguaje;
@@ -21,6 +24,11 @@ istream& Programador::leer(istream &in) {
     cout << "Especializacion: ";
     getline(cin, especializacion);
 
+    return in;
+}
+
+istream& operator>>(istream& in, Programador& developer) {
+    developer.leer(in);
     return in;
 }
 

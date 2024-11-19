@@ -22,6 +22,7 @@ class Empresa {
     //Gets y Setters
     string getNombreEmpresa();
     void setNombreEmpresa(string);
+    const vector <Proyecto*>& getProyectos();
 
     //Métodos para manipular proyectos
     void anadirProyecto();

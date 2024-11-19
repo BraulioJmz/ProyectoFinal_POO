@@ -14,6 +14,7 @@ private:
 
 public:
     //Constructor
+    Disenador();
     Disenador(string nombre, float salario, int idTrabajador,
         string herramientaDiseno, string tipoDiseno);
 
@@ -22,6 +23,7 @@ public:
 
     //Sobrecarga del operador de entrada con polimorfismo
     istream& leer(istream &in) override;
+    friend istream& operator>>(istream& in, Disenador& designer);
 
     //Metodos get y set
     string getHerramientaDiseno();

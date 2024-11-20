@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 
 #include "Empresa.h"
 #include "Proyecto.h"
@@ -16,6 +15,10 @@ void menuElegirProyectos();
 void menuAddTrabajador();
 void despedida();
 
+void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
+int encontrarProyecto(const vector<Proyecto*>& proyectos, int ID);
+void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador);
+
 using namespace std;
 
 int main() {
@@ -27,7 +30,6 @@ int main() {
     do {
         opc = 0;
         opc_2 = 0;
-        opc_3 = 0;
 
         menuPrincipal();
         cin >> opc;
@@ -47,7 +49,7 @@ int main() {
                         break;
                         case 3:
                             empresa.eliminarProyecto();
-                        break;;
+                        break;
                         case 4:
                             empresa.mostrarProyectos();
                         break;
@@ -58,65 +60,20 @@ int main() {
                         break;
                     }
                 } while (opc_2 != 5);
-                break;
+            break;
 
-            case 2:  //Seleccionar acciones con TRABAJADORES
+            case 2: {  //Seleccionar acciones con TRABAJADORES
                 menuTrabajadores();
                 cin >> opc_2;
 
                 switch (opc_2) {
                     case 1: //Añadir trabajadores a un proyecto
-                        menuElegirProyectos(); //Seleccionar a que proyecto
-                        cin >> ID; cin.ignore();
-
-                        int indexProyecto = -1;
                         const vector<Proyecto*>& proyectos = empresa.getProyectos();
-
-                        for(int i = 0; i < proyectos.size(); i++ ) {
-                        if(ID == proyectos[i]->getIdProyecto()) {
-                            flag = 1;
-                            indexProyecto = i;
-                            break;   //Verificar si existe el ID del proyecto
-                        }
-                    }
-                    if(flag == 1) {
-                        menuAddTrabajador();
-                        cin >> opc_3;
-
-                        switch (opc_3) {
-                            case 1: { //Ingresar diseñadores
-                                cout << "\nIngresando designer..." << endl;
-                                Disenador* designer = new Disenador(); //Crear diseñador
-                                cin >> *designer; //Utilizar sobrecarga para agregar
-
-                                //Agregar trabajador al proyecto encontrado
-                                proyectos[indexProyecto]-> anadirTrabajador(designer);
-                                cout << "\nTrabajador agregado correctamente" << endl;
-                                break;
-                            }
-
-                            case 2: {
-                                //Ingresar programadores
-                                cout << "\nIngresando programador..." << endl;
-                                Programador* developer = new Programador(); //Crear programador
-                                cin >> *developer; //Utilizar sobrecarga para agregar
-
-                                //Agregar trabajador al proyecto encontrado
-                                proyectos[indexProyecto]-> anadirTrabajador(developer);
-                                cout << "\nTrabajador agregado correctamente" << endl;
-                                break;
-                            }
-
-                            default:
-                                cout << "Opcion invalida!" << endl;
-                            break;
-                        }
-                    }
-                    else {
-                        cout << "\nProyecto no encontrado" << endl;
-                    }
+                        addTrabajadorProyecto(proyectos);  //Implementación con funciones
+                    break;
                 }
                 break;
+            }
 
             case 3:
                 despedida();
@@ -181,4 +138,68 @@ void despedida() {
     cout << "Version 1.0" << endl;
     cout << "Alberto Adrian Vera Ruiz" << endl;
     cout << "Braulio Jimenez Chavez" << endl;
+}
+
+void addTrabajadorProyecto(const vector<Proyecto*>& proyectos) {
+    int ID;
+    menuElegirProyectos();
+    cin >> ID; cin.ignore();
+
+    int indexProyecto = encontrarProyecto(proyectos,  ID);
+
+    if(indexProyecto != -1) {
+        Proyecto* proyecto = proyectos[indexProyecto];
+
+        int tipoTrabajador;
+        menuAddTrabajador();
+        cin >> tipoTrabajador;
+
+        //Agregar trabajador al proyecto ingresado
+        trabajadorAgregado(proyecto, tipoTrabajador);
+    }
+    else {
+        cout << "\nProyecto no encontrado" << endl;
+    }
+}
+
+//Buscar proyecto por ID y devuelve su indice
+int encontrarProyecto(const vector<Proyecto*>& proyectos, int ID) {
+    for(int i = 0; i < proyectos.size(); i++ ) {
+        if(ID == proyectos[i]->getIdProyecto()) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//Instancia un trabajador segun el tipo ingresado y lo agrega al proyecto
+void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador) {
+    switch (tipoTrabajador) {
+        case 1: { //Ingresar diseñadores
+            cout << "\nIngresando designer..." << endl;
+            Disenador* designer = new Disenador(); //Crear diseñador
+            cin >> *designer; //Utilizar sobrecarga para agregar
+
+            //Agregar trabajador al proyecto encontrado
+            proyecto-> anadirTrabajador(designer);
+            cout << "\nTrabajador agregado correctamente" << endl;
+            break;
+        }
+
+        case 2: {
+            //Ingresar programadores
+            cout << "\nIngresando programador..." << endl;
+            Programador* developer = new Programador(); //Crear programador
+            cin >> *developer; //Utilizar sobrecarga para agregar
+
+            //Agregar trabajador al proyecto encontrado
+            proyecto-> anadirTrabajador(developer);
+            cout << "\nTrabajador agregado correctamente" << endl;
+            break;
+        }
+
+        default:
+            cout << "Opcion invalida!" << endl;
+        break;
+    }
 }

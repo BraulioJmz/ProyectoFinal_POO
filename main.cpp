@@ -14,11 +14,13 @@ void menuTrabajadores();
 void menuElegirProyectos();
 void menuAddTrabajador();
 void menuBuscarTrabajador();
+void menuBuscarTrabajador2();
 void despedida();
 
 void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
 int encontrarProyecto(const vector<Proyecto*>& proyectos, int ID);
 void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador);
+int buscarTrabajador(const vector<Trabajador*>& trabajadores, int ID);
 
 using namespace std;
 
@@ -77,11 +79,81 @@ int main() {
 
                     case 2: {
                         //Buscar trabajadores
+                        const vector<Proyecto*>& proyectos = empresa.getProyectos();
                         int ID;
-                        menuBuscarTrabajador();
+                        int indexProyecto = -1;
+
+                        cout << "\nBuscar trabajador..." << endl;
+                        cout << "En que proyecto esta el trabajador?" << endl;
+                        cout << "Ingrese el ID del proyecto: ";
                         cin >> ID; cin.ignore();
 
+                        for(int i = 0; i < proyectos.size(); i++ ) {
+                            if(ID == proyectos[i]->getIdProyecto()) {
+                                indexProyecto = encontrarProyecto(proyectos,  ID);
+                            }
+                        }
+                        if(indexProyecto == -1) {
+                            cout << endl << "Proyecto no encontrado" << endl;
+                        }
+                        const vector<Trabajador*>& trabajadores = proyectos[indexProyecto]->getTrabajadores();
+                        cout << "Ingrese el ID del trabajador: ";
+                        cin >> ID; cin.ignore();
 
+                        Trabajador* encontrado = nullptr;
+                        for (int i = 0; i < trabajadores.size(); ++i) {
+                            if (trabajadores[i]->getIdTrabajador() == ID) {
+                                encontrado = trabajadores[i];
+                                break;
+                            }
+                        }
+
+                        if (encontrado) {
+                            encontrado->imprimir();
+                        }
+                        else {
+                            cout << "Trabajador no encontrado." << endl;
+                        }
+                        break;
+                    }
+
+                    case 3: {
+                        //Buscar trabajadores
+                        const vector<Proyecto*>& proyectos = empresa.getProyectos();
+                        int ID,eliminar=0;
+                        int indexProyecto = -1;
+
+                        cout << "\nEliminar trabajador..." << endl;
+                        cout << "En que proyecto esta el trabajador?" << endl;
+                        cout << "Ingrese el ID del proyecto: ";
+                        cin >> ID; cin.ignore();
+
+                        for(int i = 0; i < proyectos.size(); i++ ) {
+                            if(ID == proyectos[i]->getIdProyecto()) {
+                                indexProyecto = encontrarProyecto(proyectos,  ID);
+                            }
+                        }
+                        if(indexProyecto == -1) {
+                            cout << endl << "Proyecto no encontrado" << endl;
+                        }
+                        const vector<Trabajador*>& trabajadores = proyectos[indexProyecto]->getTrabajadores();
+                        cout << "Ingrese el ID del trabajador: ";
+                        cin >> ID; cin.ignore();
+
+                        for (int i = 0; i < trabajadores.size(); ++i) {
+                            if (trabajadores[i]->getIdTrabajador() == ID) {
+                                eliminar = i;
+                                break;
+                            }
+                        }
+
+                        if(eliminar!=0) {
+                            proyectos[eliminar]->eliminarTrabajador(ID);
+                            cout << "Trabajador eliminado correctamente" << endl;
+                        }
+                        else {
+                            cout << "Trabajador no encontrado." << endl;
+                        }
                         break;
                     }
                     default:
@@ -141,16 +213,21 @@ void menuElegirProyectos() {
     cout << "Ingrese el ID del proyecto: ";
 }
 
+void menuBuscarTrabajador() {
+    cout << "\nBuscar trabajador..." << endl;
+    cout << "En que proyecto esta el trabajador?" << endl;
+    cout << "Ingrese el ID del proyecto: ";
+}
+
+void menuBuscarTrabajador2() {
+    cout << "Ingrese el ID del trabajador: ";
+}
+
 void menuAddTrabajador() {
     cout << "\nDar de alta trabajador..." << endl;
     cout << "1. Designer" << endl;
     cout << "2. Programador" << endl;
     cout << "Dame una opcion: " ;
-}
-
-void menuBuscarTrabajador() {
-    cout << "\nBuscar trabajador...?" << endl;
-    cout << "Ingrese el ID del trabajador: ";
 }
 
 //Función para la despedida
@@ -223,4 +300,13 @@ void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador) {
             cout << "Opcion invalida!" << endl;
         break;
     }
+}
+
+int buscarTrabajador(const vector<Trabajador*>& trabajadores, int ID) {
+    for (int i = 0; i < trabajadores.size(); i++) {
+        if (trabajadores[i]->getIdTrabajador() == ID) {
+            return i;
+        }
+    }
+    return -1;
 }

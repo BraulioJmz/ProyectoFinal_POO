@@ -34,6 +34,13 @@ istream& operator>>(istream& in, Disenador& designer) {
     return in;
 }
 
+void Disenador::imprimir()  {
+    Trabajador::imprimir();
+    cout << "Herramienta design: " << herramientaDiseno << endl;
+    cout << "Tipo de design: " << tipoDiseno << endl;
+
+}
+
 //Metodos get y set
 
 string Disenador::getHerramientaDiseno() {

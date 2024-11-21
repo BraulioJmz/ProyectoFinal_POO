@@ -23,6 +23,8 @@ public:
     virtual void trabajar() = 0;
     virtual istream& leer(istream& in);
 
+    virtual void imprimir();
+
     //Metodos get y set
     string getNombre();
     float getSalario();

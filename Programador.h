@@ -20,6 +20,7 @@ public:
 
     //Polimorfismo
     void trabajar() override;
+    void imprimir() override;
 
     //Sobrecarga del operador de entrada con polimorfismo
     istream& leer(istream &in) override;

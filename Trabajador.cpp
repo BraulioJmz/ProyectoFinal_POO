@@ -22,6 +22,13 @@ istream& Trabajador::leer(istream& in) {
     return in;
 }
 
+void Trabajador::imprimir() {
+    cout << "ID: " << salario << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Salario: " << salario << endl;
+ }
+
+
 
 //Metodos get y set
 string Trabajador::getNombre() {

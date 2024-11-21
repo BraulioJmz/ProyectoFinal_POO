@@ -13,6 +13,7 @@ void menuProyectos();
 void menuTrabajadores();
 void menuElegirProyectos();
 void menuAddTrabajador();
+void menuBuscarTrabajador();
 void despedida();
 
 void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
@@ -25,7 +26,7 @@ int main() {
     int opc, opc_2, opc_3;
     int ID;
     int flag = 0;
-    Empresa empresa("BRUAL");
+    Empresa empresa("ORACLE");
 
     do {
         opc = 0;
@@ -67,10 +68,25 @@ int main() {
                 cin >> opc_2;
 
                 switch (opc_2) {
-                    case 1: //Añadir trabajadores a un proyecto
+                    case 1: {
+                        //Añadir trabajadores a un proyecto
                         const vector<Proyecto*>& proyectos = empresa.getProyectos();
                         addTrabajadorProyecto(proyectos);  //Implementación con funciones
-                    break;
+                        break;
+                    }
+
+                    case 2: {
+                        //Buscar trabajadores
+                        int ID;
+                        menuBuscarTrabajador();
+                        cin >> ID; cin.ignore();
+
+
+                        break;
+                    }
+                    default:
+                        cout << endl << "Opcion invalida!" << endl;
+                        break;
                 }
                 break;
             }
@@ -130,6 +146,11 @@ void menuAddTrabajador() {
     cout << "1. Designer" << endl;
     cout << "2. Programador" << endl;
     cout << "Dame una opcion: " ;
+}
+
+void menuBuscarTrabajador() {
+    cout << "\nBuscar trabajador...?" << endl;
+    cout << "Ingrese el ID del trabajador: ";
 }
 
 //Función para la despedida

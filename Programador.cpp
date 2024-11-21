@@ -32,6 +32,12 @@ istream& operator>>(istream& in, Programador& developer) {
     return in;
 }
 
+void Programador::imprimir() {
+    Trabajador::imprimir();
+    cout << "Lenguaje: " << lenguaje << endl;
+    cout << "Especializacion: " << especializacion << endl;
+}
+
 //Metodos get y set
 
 string Programador::getLenguaje() {

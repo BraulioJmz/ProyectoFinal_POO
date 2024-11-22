@@ -20,7 +20,9 @@ string Proyecto::getNombreProyecto() {
 void Proyecto::setNombreProyecto(string nombreProyecto) {
     this->nombreProyecto = nombreProyecto;
 }
-
+const vector<Trabajador*> &Proyecto::getTrabajadores() {
+    return trabajadores;
+}
 //Métodos para manipular proyectos
 void Proyecto::anadirTrabajador(Trabajador* trabajador) {
     trabajadores.push_back(trabajador);
@@ -35,11 +37,12 @@ void Proyecto::eliminarTrabajador(int idTrabajador) {
     }
 }
 
-Trabajador* Proyecto::buscarTrabajador(int idTrabajador) {
+int Proyecto::buscarTrabajador(int id) {
+    int encontrado = -1;
     for (int i = 0; i < trabajadores.size(); i++) {
-        if (trabajadores[i]->getIdTrabajador() == idTrabajador) {
-            return trabajadores[i];
+        if (trabajadores[i]->getIdTrabajador() == id) {
+            encontrado = i;
         }
     }
-    return nullptr;
+    return encontrado;
 }

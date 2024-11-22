@@ -28,7 +28,7 @@ class Empresa {
     void anadirProyecto();
     void eliminarProyecto();
     void mostrarProyectos();
-    Proyecto* buscarProyecto();
+    int buscarProyecto(int);
 };
 
 #endif //EMPRESA_H

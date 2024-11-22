@@ -15,6 +15,7 @@ void Empresa::setNombreEmpresa(string nombreEmpresa) {
 const vector <Proyecto*>& Empresa::getProyectos() {
     return proyectos;
 }
+
 //Métodos para manipular proyectos
 void Empresa::anadirProyecto() {
     string nombre;
@@ -77,25 +78,14 @@ void Empresa::mostrarProyectos() {
     }
 }
 
-Proyecto *Empresa::buscarProyecto() {
-    int id;
-    cout << endl << "Buscar un proyecto" << std::endl;
-    cout << "Ingrese el ID del proyecto: ";
-    cin >> id;
-
-    Proyecto* encontrado = nullptr;
+int Empresa::buscarProyecto(int id) {
+    int encontrado = -1;
     for (int i = 0; i < proyectos.size(); ++i) {
         if (proyectos[i]->getIdProyecto() == id) {
-            encontrado = proyectos[i];
+            encontrado = i;
             break;
         }
     }
-
-    if (encontrado) {
-        cout << "Proyecto encontrado: " << encontrado->getNombreProyecto() << endl;
-    }
-    else {
-        cout << "Proyecto no encontrado." << endl;
-    }
-    return nullptr;
+    return encontrado;
 }
+

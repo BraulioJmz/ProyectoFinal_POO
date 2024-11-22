@@ -21,13 +21,14 @@ class Proyecto {
     //Gets y Setters
     string getNombreProyecto();
     int getIdProyecto();
+    const vector<Trabajador*>& getTrabajadores();
     void setNombreProyecto(string);
     void setIdProyecto(int);
 
-    //Métodos para manipular proyectos
+    //Métodos para manipular trabajadores
     void anadirTrabajador(Trabajador*);
     void eliminarTrabajador(int);
-    Trabajador* buscarTrabajador(int);
+    int buscarTrabajador(int);
 };
 
 #endif //PROYECTO_H

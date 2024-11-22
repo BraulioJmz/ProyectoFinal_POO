@@ -10,24 +10,25 @@
 void menuPrincipal();
 void menuProyectos();
 
+void menuBuscarProyecto();
+
 void menuTrabajadores();
 void menuElegirProyectos();
 void menuAddTrabajador();
 void menuBuscarTrabajador();
-void menuBuscarTrabajador2();
+void menuEliminarTrabajador();
 void despedida();
 
 void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
 int encontrarProyecto(const vector<Proyecto*>& proyectos, int ID);
 void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador);
-int buscarTrabajador(const vector<Trabajador*>& trabajadores, int ID);
+void buscarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
+void eliminarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
 
 using namespace std;
 
 int main() {
-    int opc, opc_2, opc_3;
-    int ID;
-    int flag = 0;
+    int opc, opc_2,ID,encontrado;
     Empresa empresa("ORACLE");
 
     do {
@@ -47,8 +48,19 @@ int main() {
                         case 1:
                             empresa.anadirProyecto();
                         break;
-                        case 2:
-                            empresa.buscarProyecto();
+                        case 2: {
+                            menuBuscarProyecto();
+                            cin >> ID; cin.ignore();
+                            encontrado = empresa.buscarProyecto(ID);
+
+                            const vector<Proyecto*>& proyectos = empresa.getProyectos();
+                            if (encontrado != -1) {
+                                cout << "Proyecto encontrado: " << proyectos[encontrado]->getNombreProyecto() << endl;
+                            }
+                            else {
+                                cout << "Proyecto no encontrado." << endl;
+                            }
+                        }
                         break;
                         case 3:
                             empresa.eliminarProyecto();
@@ -74,86 +86,29 @@ int main() {
                         //Añadir trabajadores a un proyecto
                         const vector<Proyecto*>& proyectos = empresa.getProyectos();
                         addTrabajadorProyecto(proyectos);  //Implementación con funciones
-                        break;
+                        break;          
                     }
 
                     case 2: {
                         //Buscar trabajadores
                         const vector<Proyecto*>& proyectos = empresa.getProyectos();
-                        int ID;
-                        int indexProyecto = -1;
-
-                        cout << "\nBuscar trabajador..." << endl;
-                        cout << "En que proyecto esta el trabajador?" << endl;
-                        cout << "Ingrese el ID del proyecto: ";
+                        menuEliminarTrabajador();
                         cin >> ID; cin.ignore();
 
-                        for(int i = 0; i < proyectos.size(); i++ ) {
-                            if(ID == proyectos[i]->getIdProyecto()) {
-                                indexProyecto = encontrarProyecto(proyectos,  ID);
-                            }
-                        }
-                        if(indexProyecto == -1) {
-                            cout << endl << "Proyecto no encontrado" << endl;
-                        }
-                        const vector<Trabajador*>& trabajadores = proyectos[indexProyecto]->getTrabajadores();
-                        cout << "Ingrese el ID del trabajador: ";
-                        cin >> ID; cin.ignore();
-
-                        Trabajador* encontrado = nullptr;
-                        for (int i = 0; i < trabajadores.size(); ++i) {
-                            if (trabajadores[i]->getIdTrabajador() == ID) {
-                                encontrado = trabajadores[i];
-                                break;
-                            }
-                        }
-
-                        if (encontrado) {
-                            encontrado->imprimir();
-                        }
-                        else {
-                            cout << "Trabajador no encontrado." << endl;
-                        }
+                        encontrado = empresa.buscarProyecto(ID);
+                        buscarTrabajador(proyectos, encontrado);
                         break;
                     }
 
                     case 3: {
-                        //Buscar trabajadores
+                        //Eliminar trabajadores
                         const vector<Proyecto*>& proyectos = empresa.getProyectos();
-                        int ID,eliminar=0;
-                        int indexProyecto = -1;
-
-                        cout << "\nEliminar trabajador..." << endl;
-                        cout << "En que proyecto esta el trabajador?" << endl;
-                        cout << "Ingrese el ID del proyecto: ";
+                        menuEliminarTrabajador();
                         cin >> ID; cin.ignore();
+                        int proyecto = ID;
 
-                        for(int i = 0; i < proyectos.size(); i++ ) {
-                            if(ID == proyectos[i]->getIdProyecto()) {
-                                indexProyecto = encontrarProyecto(proyectos,  ID);
-                            }
-                        }
-                        if(indexProyecto == -1) {
-                            cout << endl << "Proyecto no encontrado" << endl;
-                        }
-                        const vector<Trabajador*>& trabajadores = proyectos[indexProyecto]->getTrabajadores();
-                        cout << "Ingrese el ID del trabajador: ";
-                        cin >> ID; cin.ignore();
-
-                        for (int i = 0; i < trabajadores.size(); ++i) {
-                            if (trabajadores[i]->getIdTrabajador() == ID) {
-                                eliminar = i;
-                                break;
-                            }
-                        }
-
-                        if(eliminar!=0) {
-                            proyectos[eliminar]->eliminarTrabajador(ID);
-                            cout << "Trabajador eliminado correctamente" << endl;
-                        }
-                        else {
-                            cout << "Trabajador no encontrado." << endl;
-                        }
+                        encontrado = empresa.buscarProyecto(ID);
+                        eliminarTrabajador(proyectos, encontrado);
                         break;
                     }
                     default:
@@ -197,6 +152,11 @@ void menuProyectos() {
     cout << "Dame una opcion: " ;
 }
 
+void menuBuscarProyecto() {
+    cout << endl << "Buscar un proyecto" << endl;
+    cout << "Ingrese el ID del proyecto: ";
+}
+
 //Función para el menu de trabajadores
 void menuTrabajadores() {
     cout << endl << "Menu | Trabajadores" << endl;
@@ -219,15 +179,17 @@ void menuBuscarTrabajador() {
     cout << "Ingrese el ID del proyecto: ";
 }
 
-void menuBuscarTrabajador2() {
-    cout << "Ingrese el ID del trabajador: ";
-}
-
 void menuAddTrabajador() {
     cout << "\nDar de alta trabajador..." << endl;
     cout << "1. Designer" << endl;
     cout << "2. Programador" << endl;
     cout << "Dame una opcion: " ;
+}
+
+void menuEliminarTrabajador() {
+    cout << "\nEliminar trabajador..." << endl;
+    cout << "En que proyecto esta el trabajador?" << endl;
+    cout << "Ingrese el ID del proyecto: ";
 }
 
 //Función para la despedida
@@ -302,11 +264,44 @@ void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador) {
     }
 }
 
-int buscarTrabajador(const vector<Trabajador*>& trabajadores, int ID) {
-    for (int i = 0; i < trabajadores.size(); i++) {
-        if (trabajadores[i]->getIdTrabajador() == ID) {
-            return i;
+void buscarTrabajador(const vector<Proyecto*>& proyectos, int encontrado) {
+    int ID;
+
+    if (encontrado != -1) {
+        const vector<Trabajador*>& trabajadores = proyectos[encontrado]->getTrabajadores();
+        cout << "Ingrese el ID del trabajador: ";
+        cin >> ID; cin.ignore();
+
+        encontrado = proyectos[encontrado]->buscarTrabajador(ID);
+        if (encontrado != -1) {
+            trabajadores[encontrado]->imprimir();
+        }
+        else {
+            cout << "Trabajador no encontrado." << endl;
         }
     }
-    return -1;
+    else {
+        cout << "Proyecto no encontrado." << endl;
+    }
+}
+
+void eliminarTrabajador(const vector<Proyecto *> &proyectos, int encontrado) {
+    int ID;
+
+    if (encontrado != -1) {
+        cout << "Ingrese el ID del trabajador: ";
+        cin >> ID; cin.ignore();
+
+        encontrado = proyectos[encontrado]->buscarTrabajador(ID);
+        if (encontrado != -1) {
+            proyectos[encontrado]->eliminarTrabajador(ID);
+            cout << "Trabajador eliminado correctamente" << endl;
+        }
+        else {
+            cout << "Trabajador no encontrado." << endl;
+        }
+    }
+    else {
+        cout << "Proyecto no encontrado." << endl;
+    }
 }

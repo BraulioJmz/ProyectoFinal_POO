@@ -50,23 +50,38 @@ void Empresa::anadirProyecto() {
 
 void Empresa::eliminarProyecto() {
     int id,flag=0;
+    int confirmacion;
     cout << endl << "Eliminar un proyecto..." << endl;
     cout << "Ingrese el ID del proyecto: ";
     cin >> id;
 
     for (int i = 0; i < proyectos.size(); ++i) {
         if (proyectos[i]->getIdProyecto() == id) {
-            flag = 1;
-            proyectos.erase(proyectos.begin() + i);
-            break;
+            cout << "Confirmar eliminacion" << endl;
+            cout << "1 para eliminar, 0 para cancelar" << endl;
+            cout << "Seleccion: ";
+            cin >> confirmacion; cin.ignore();
+            if (confirmacion == 1) {
+                flag = 1;
+                proyectos.erase(proyectos.begin() + i);
+                break;
+            }
+            else {
+                flag = 2;
+                break;
+            }
+
         }
     }
 
     if (flag==1) {
-        cout << "Proyecto eliminado." << endl;
+        cout << "Proyecto eliminado" << endl;
+    }
+    else if (flag == 2) {
+        cout << "Eliminacion cancelada" << endl;
     }
     else {
-        cout << "Proyecto no encontrado." << endl;
+        cout << "Proyecto no encontrado" << endl;
     }
 }
 

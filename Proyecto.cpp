@@ -15,9 +15,9 @@ Proyecto& Proyecto::operator+(float incrementoSalario) {
     return *this;
 }
 
-Proyecto& Proyecto::operator-(float incrementoSalario) {
+Proyecto& Proyecto::operator-(float disminuirSalario) {
     for(auto& trabajador : trabajadores) {
-        trabajador->setSalario(trabajador->getSalario() - incrementoSalario);
+        trabajador->setSalario(trabajador->getSalario() - disminuirSalario);
     }
     return *this;
 }

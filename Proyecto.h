@@ -18,7 +18,7 @@ class Proyecto {
     //Constructor
     Proyecto(string, int);
 
-    //Sobrecarga de metodo
+    //Sobrecarga de operador
     Proyecto& operator+(float incrementoSalario);
     Proyecto& operator-(float disminuirSalario);
 

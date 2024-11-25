@@ -7,7 +7,7 @@ Proyecto::Proyecto(string nombreProyecto, int idProyecto) {
     this->idProyecto = idProyecto;
 }
 
-//Sobrecarga de metodo
+//Sobrecarga de operador
 Proyecto& Proyecto::operator+(float incrementoSalario) {
     for(auto& trabajador : trabajadores) {
         trabajador->setSalario(trabajador->getSalario() + incrementoSalario);
@@ -17,7 +17,7 @@ Proyecto& Proyecto::operator+(float incrementoSalario) {
 
 Proyecto& Proyecto::operator-(float incrementoSalario) {
     for(auto& trabajador : trabajadores) {
-        trabajador->setSalario(trabajador->getSalario() + incrementoSalario);
+        trabajador->setSalario(trabajador->getSalario() - incrementoSalario);
     }
     return *this;
 }

@@ -367,18 +367,16 @@ void modificarSalario(const vector<Proyecto*>& proyectos) {
             cout << "\nCuanto aumentar? ";
             cin >> masSalario; cin.ignore();
 
-            for(int i=0; i<proyecto->getTrabajadores().size(); i++) {
-                proyecto->getTrabajadores()[i]->setSalario(proyecto->getTrabajadores()[i]->getSalario() + masSalario);
-            }
+            *proyecto + masSalario;
+
             cout << "Salarios aumentados!\n" << endl;
         }
         else if(opc == 2) {
             cout << "\nCuanto disminuir? "; ;
             cin >> masSalario; cin.ignore();
 
-            for(int i=0; i<proyecto->getTrabajadores().size(); i++) {
-                proyecto->getTrabajadores()[i]->setSalario(proyecto->getTrabajadores()[i]->getSalario() - masSalario);
-            }
+            *proyecto - masSalario;
+
             cout << "Salarios disminuidos!\n" << endl;
         }
         else {

@@ -7,7 +7,7 @@ Trabajador::Trabajador(string nombre, float salario, int idTrabajador) {
     this -> idTrabajador = idTrabajador;
 }
 
-//Sobrecarga del operador de entrada
+//Sobrecarga del funcion leer
 istream& Trabajador::leer(istream& in) {
     cout << "Nombre del trabajador: ";
     in.ignore();
@@ -26,6 +26,14 @@ void Trabajador::imprimir() {
     cout << endl << "Trabajador encontrado" << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Salario: " << salario << endl;
+}
+
+//Sobrecarga de operador
+ostream& operator<<(ostream& os, const Trabajador& trabajador) {
+    os << "ID: " << trabajador.idTrabajador << endl;
+    os << "Nombre: " << trabajador.nombre  << endl;
+    os << "Salario: " << trabajador.salario << endl;
+    return os;
 }
 
 //Metodos get y set

@@ -17,6 +17,8 @@ void menuElegirProyectos();
 void menuAddTrabajador();
 void menuBuscarTrabajador();
 void menuEliminarTrabajador();
+void menuSalarios();
+void add_remove();
 void despedida();
 
 void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
@@ -24,6 +26,7 @@ int encontrarProyecto(const vector<Proyecto*>& proyectos, int ID);
 void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador);
 void buscarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
 void eliminarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
+void modificarSalario(const vector<Proyecto*>& proyectos);
 
 using namespace std;
 
@@ -68,13 +71,18 @@ int main() {
                         case 4:
                             empresa.mostrarProyectos();
                         break;
-                        case 5:
+                        case 5: {
+                            const vector<Proyecto*>& proyectos = empresa.getProyectos();
+                            modificarSalario(proyectos);
+                            break;
+                        }
+                        case 6:
                             break;
                         default:
                             cout << endl << "Opcion invalida!" << endl;
                         break;
                     }
-                } while (opc_2 != 5);
+                } while (opc_2 != 6);
             break;
 
             case 2: {  //Seleccionar acciones con TRABAJADORES
@@ -148,7 +156,8 @@ void menuProyectos() {
     cout << "2. Buscar un proyecto" << endl;
     cout << "3. Dar de baja un proyecto" << endl;
     cout << "4. Mostrar todos los proyectos" << endl;
-    cout << "5. Salir al menu principal" << endl;
+    cout << "5. Aumentar o disminuir salario a proyecto" << endl;
+    cout << "6. Salir al menu principal" << endl;
     cout << "Dame una opcion: " ;
 }
 
@@ -190,6 +199,18 @@ void menuEliminarTrabajador() {
     cout << "\nEliminar trabajador..." << endl;
     cout << "En que proyecto esta el trabajador?" << endl;
     cout << "Ingrese el ID del proyecto: ";
+}
+
+void menuSalarios() {
+    cout << "\nA que proyecto modificar salarios?" << endl;
+    cout << "Ingrese el ID del proyecto: ";
+}
+
+void add_remove() {
+    cout << "\nModificar salarios..." << endl;
+    cout << "1. Aumentar" << endl;
+    cout << "2. Disminuir" << endl;
+    cout << "Dame una opcion: " ;
 }
 
 //Función para la despedida
@@ -303,5 +324,45 @@ void eliminarTrabajador(const vector<Proyecto *> &proyectos, int encontrado) {
     }
     else {
         cout << "Proyecto no encontrado." << endl;
+    }
+}
+
+void modificarSalario(const vector<Proyecto*>& proyectos) {
+    menuSalarios();
+    int ID, opc;
+    float masSalario;
+    cin >> ID; cin.ignore();
+
+    int indexProyecto = encontrarProyecto(proyectos,  ID);
+
+    if(indexProyecto != -1) {
+        Proyecto* proyecto = proyectos[indexProyecto];
+        add_remove();
+        cin >> opc; cin.ignore();
+
+        if(opc == 1) {
+            cout << "\nCuanto aumentar? ";
+            cin >> masSalario; cin.ignore();
+
+            for(int i=0; i<proyecto->getTrabajadores().size(); i++) {
+                proyecto->getTrabajadores()[i]->setSalario(proyecto->getTrabajadores()[i]->getSalario() + masSalario);
+            }
+            cout << "Salarios aumentados!\n" << endl;
+        }
+        else if(opc == 2) {
+            cout << "\nCuanto disminuir? "; ;
+            cin >> masSalario; cin.ignore();
+
+            for(int i=0; i<proyecto->getTrabajadores().size(); i++) {
+                proyecto->getTrabajadores()[i]->setSalario(proyecto->getTrabajadores()[i]->getSalario() - masSalario);
+            }
+            cout << "Salarios disminuidos!\n" << endl;
+        }
+        else {
+            cout << "Opcion invalida!" << endl;
+        }
+    }
+    else {
+        cout << "\nProyecto no encontrado" << endl;
     }
 }

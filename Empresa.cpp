@@ -86,10 +86,23 @@ void Empresa::eliminarProyecto() {
 }
 
 void Empresa::mostrarProyectos() {
-    cout << endl << "Mostrar todos los proyectos" << endl;
+    cout << endl << "Mostrar todos los proyectos..." << endl;
     for (int i = 0; i < proyectos.size(); i++) {
-        cout << "Id: " << proyectos[i]->getIdProyecto() << endl;
+        cout << "----------------------------" << endl;
+        cout << "Proyecto ID: " << proyectos[i]->getIdProyecto() << endl;
         cout << "Nombre: " << proyectos[i]->getNombreProyecto() << endl << endl;
+
+        const auto& trabajadores = proyectos[i]->getTrabajadores();
+        if(trabajadores.empty()) {
+            cout << "No hay trabajadores registrados" << endl;
+        }
+        else {
+            cout << "Trabajadores en el proyecto: " << endl;
+
+            for(int j = 0; j < trabajadores.size(); j++) {
+                cout << *trabajadores[j] << endl;
+            }
+        }
     }
 }
 

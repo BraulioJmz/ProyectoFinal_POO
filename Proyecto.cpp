@@ -7,6 +7,21 @@ Proyecto::Proyecto(string nombreProyecto, int idProyecto) {
     this->idProyecto = idProyecto;
 }
 
+//Sobrecarga de metodo
+Proyecto& Proyecto::operator+(float incrementoSalario) {
+    for(auto& trabajador : trabajadores) {
+        trabajador->setSalario(trabajador->getSalario() + incrementoSalario);
+    }
+    return *this;
+}
+
+Proyecto& Proyecto::operator-(float disminuirSalario) {
+    for(auto& trabajador : trabajadores) {
+        trabajador->setSalario(trabajador->getSalario() - disminuirSalario);
+    }
+    return *this;
+}
+
 //Gets y Setters
 int Proyecto::getIdProyecto() {
     return idProyecto;

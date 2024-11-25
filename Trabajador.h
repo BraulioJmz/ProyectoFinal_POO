@@ -22,8 +22,10 @@ public:
     //Uso de polimorfismo
     virtual void trabajar() = 0;
     virtual istream& leer(istream& in);
-
     virtual void imprimir();
+
+    //Sobrecarga de operador
+    friend ostream& operator<<(ostream& os, const Trabajador& trabajador);
 
     //Metodos get y set
     string getNombre();

@@ -26,9 +26,12 @@ public:
     istream& leer(istream &in) override;
     friend istream& operator>>(istream& in, Programador& developer);
 
+    //Sobrecarga del operador de salida
+    friend ostream& operator<<(ostream& os, Programador& developer);
+
     //Metodos get y set
-    string getLenguaje();
-    string getEspecializacion();
+    string getLenguaje() const;
+    string getEspecializacion() const;
 
     void setLenguaje(string lenguaje);
     void setEspecializacion(string especializacion);

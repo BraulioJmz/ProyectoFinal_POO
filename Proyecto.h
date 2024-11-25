@@ -18,6 +18,10 @@ class Proyecto {
     //Constructor
     Proyecto(string, int);
 
+    //Sobrecarga de metodo
+    Proyecto& operator+(float incrementoSalario);
+    Proyecto& operator-(float disminuirSalario);
+
     //Gets y Setters
     string getNombreProyecto();
     int getIdProyecto();

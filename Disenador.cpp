@@ -15,7 +15,7 @@ void Disenador::trabajar() {
     cout << "El designer "<< nombre << " trabaja en " << herramientaDiseno  << endl;
 }
 
-//Sobrecarga del operador de entrada con polimorfismo
+//Sobrecarga de función leer y sobrecarga del operador de entrada
 
 istream& Disenador::leer(istream &in) {
     Trabajador::leer(in);
@@ -34,6 +34,14 @@ istream& operator>>(istream& in, Disenador& designer) {
     return in;
 }
 
+ostream& operator<<(ostream& os, Disenador& designer) {
+    os << static_cast<const Trabajador&>(designer);
+    os << "Herramienta design: " << designer.getHerramientaDiseno() << endl;
+    os << "Tipo de design: " << designer.getTipoDiseno() << endl;
+
+    return os;
+}
+
 void Disenador::imprimir()  {
     Trabajador::imprimir();
     cout << "Herramienta design: " << herramientaDiseno << endl;
@@ -43,11 +51,11 @@ void Disenador::imprimir()  {
 
 //Metodos get y set
 
-string Disenador::getHerramientaDiseno() {
+string Disenador::getHerramientaDiseno() const {
     return herramientaDiseno;
 }
 
-string Disenador::getTipoDiseno() {
+string Disenador::getTipoDiseno() const{
     return tipoDiseno;
 }
 

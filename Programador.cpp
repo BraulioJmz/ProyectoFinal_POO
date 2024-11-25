@@ -38,13 +38,21 @@ void Programador::imprimir() {
     cout << "Especializacion: " << especializacion << endl;
 }
 
+//Sobrecarga del operador de salida
+ostream& operator<<(ostream& os, const Programador& developer) {
+    os << static_cast<const Trabajador&>(developer);
+    os << "Lenguaje: " << developer.getLenguaje() << endl;
+    os << "Especializacion: " << developer.getEspecializacion() << endl;
+    return os;
+}
+
 //Metodos get y set
 
-string Programador::getLenguaje() {
+string Programador::getLenguaje() const{
     return lenguaje;
 }
 
-string Programador::getEspecializacion() {
+string Programador::getEspecializacion() const{
     return especializacion;
 }
 

@@ -22,13 +22,16 @@ public:
     void trabajar() override;
     void imprimir() override;
 
-    //Sobrecarga del operador de entrada con polimorfismo
+    //Sobrecarga de función leer y sobrecarga del operador de entrada
     istream& leer(istream &in) override;
     friend istream& operator>>(istream& in, Disenador& designer);
 
+    //Sobrecarga del operador de salida
+    friend ostream& operator<<(ostream& os, Disenador& designer);
+
     //Metodos get y set
-    string getHerramientaDiseno();
-    string getTipoDiseno();
+    string getHerramientaDiseno () const;
+    string getTipoDiseno () const;
 
     void setHerramientaDiseno(string herramientaDiseno);
     void setTipoDiseno(string tipoDiseno);

@@ -15,6 +15,10 @@ void Programador::trabajar() {
     cout << "El programador " << nombre << " trabaja en " << lenguaje << endl;
 }
 
+float Programador::getSalario() const {
+    return salario;
+}
+
 istream& Programador::leer(istream &in) {
     Trabajador::leer(in);
     cout << "Lenguaje programacion: ";

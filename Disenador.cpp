@@ -15,6 +15,10 @@ void Disenador::trabajar() {
     cout << "El designer "<< nombre << " trabaja en " << herramientaDiseno  << endl;
 }
 
+float Disenador::getSalario() const {
+    return salario;
+}
+
 //Sobrecarga de función leer y sobrecarga del operador de entrada
 
 istream& Disenador::leer(istream &in) {

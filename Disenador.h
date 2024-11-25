@@ -21,6 +21,7 @@ public:
     //Polimorfismo
     void trabajar() override;
     void imprimir() override;
+    float getSalario() const override;
 
     //Sobrecarga de función leer y sobrecarga del operador de entrada
     istream& leer(istream &in) override;

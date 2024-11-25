@@ -36,12 +36,20 @@ ostream& operator<<(ostream& os, const Trabajador& trabajador) {
     return os;
 }
 
+bool operator>(Trabajador& t1, Trabajador& t2) {
+    return t1.salario > t2.salario;
+}
+
+bool operator<(Trabajador& t1, Trabajador& t2) {
+    return t1.salario < t2.salario;
+}
+
 //Metodos get y set
 string Trabajador::getNombre() {
     return nombre;
 }
 
-float Trabajador::getSalario() {
+float Trabajador::getSalario() const{
     return salario;
 }
 

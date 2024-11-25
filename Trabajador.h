@@ -26,10 +26,12 @@ public:
 
     //Sobrecarga de operador
     friend ostream& operator<<(ostream& os, const Trabajador& trabajador);
+    friend bool operator>(Trabajador& t1, Trabajador& t2);
+    friend bool operator<(Trabajador& t1, Trabajador& t2);
 
     //Metodos get y set
     string getNombre();
-    float getSalario();
+    virtual float getSalario() const;
     int getIdTrabajador();
 
     void setNombre(string nombre);

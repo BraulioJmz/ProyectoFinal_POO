@@ -19,6 +19,8 @@ void menuBuscarTrabajador();
 void menuEliminarTrabajador();
 void menuSalarios();
 void add_remove();
+void menuCompararSalario();
+void selectorSalario();
 void despedida();
 
 void addTrabajadorProyecto(const vector<Proyecto*>& proyectos);
@@ -27,6 +29,7 @@ void trabajadorAgregado(Proyecto* proyecto, int tipoTrabajador);
 void buscarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
 void eliminarTrabajador(const vector<Proyecto*>& proyectos, int encontrado);
 void modificarSalario(const vector<Proyecto*>& proyectos);
+void compararSalario(const vector<Proyecto*>& proyectos);
 
 using namespace std;
 
@@ -76,13 +79,18 @@ int main() {
                             modificarSalario(proyectos);
                             break;
                         }
-                        case 6:
+                        case 6: {
+                            const vector<Proyecto*>& proyectos = empresa.getProyectos();
+                            compararSalario(proyectos);
+                            break;
+                        }
+                        case 7:
                             break;
                         default:
                             cout << endl << "Opcion invalida!" << endl;
                         break;
                     }
-                } while (opc_2 != 6);
+                } while (opc_2 != 7);
             break;
 
             case 2: {  //Seleccionar acciones con TRABAJADORES
@@ -119,6 +127,8 @@ int main() {
                         eliminarTrabajador(proyectos, encontrado);
                         break;
                     }
+                    case 4:
+                        break;
                     default:
                         cout << endl << "Opcion invalida!" << endl;
                         break;
@@ -157,7 +167,8 @@ void menuProyectos() {
     cout << "3. Dar de baja un proyecto" << endl;
     cout << "4. Mostrar todos los proyectos" << endl;
     cout << "5. Aumentar o disminuir salario a proyecto" << endl;
-    cout << "6. Salir al menu principal" << endl;
+    cout << "6. Comparar sueldos del proyecto" << endl;
+    cout << "7. Salir al menu principal" << endl;
     cout << "Dame una opcion: " ;
 }
 
@@ -211,6 +222,18 @@ void add_remove() {
     cout << "1. Aumentar" << endl;
     cout << "2. Disminuir" << endl;
     cout << "Dame una opcion: " ;
+}
+
+void menuCompararSalario() {
+    cout << "\nDe que proyecto quieres encontrar el mayor o menor salario?" << endl;
+    cout << "Ingrese el ID del proyecto: ";
+}
+
+void selectorSalario() {
+    cout << "\nComparar salarios..." << endl;
+    cout << "1. Mejor pagado" << endl;
+    cout << "2. Peor pagado" << endl;
+    cout << "Dame una opcion: ";
 }
 
 //Función para la despedida
@@ -357,6 +380,53 @@ void modificarSalario(const vector<Proyecto*>& proyectos) {
                 proyecto->getTrabajadores()[i]->setSalario(proyecto->getTrabajadores()[i]->getSalario() - masSalario);
             }
             cout << "Salarios disminuidos!\n" << endl;
+        }
+        else {
+            cout << "Opcion invalida!" << endl;
+        }
+    }
+    else {
+        cout << "\nProyecto no encontrado" << endl;
+    }
+}
+
+void compararSalario(const vector<Proyecto*>& proyectos) {
+    menuCompararSalario();
+    int masSalario;
+    int ID, opc;
+    cin >> ID; cin.ignore();
+
+    int indexProyecto = encontrarProyecto(proyectos,  ID);
+
+    if(indexProyecto != -1) {
+        const vector<Trabajador*>& trabajadores = proyectos[indexProyecto]->getTrabajadores();
+
+        selectorSalario();
+        cin >> opc; cin.ignore();
+
+        if(opc == 1) {
+            cout << "\nEmpleado mejor pagado del proyecto" << endl;
+
+            int mayor = 0;
+            for(int i=0; i<trabajadores.size(); i++) {
+                if(*trabajadores[i] > *trabajadores[mayor]) {
+                    mayor = i;
+                }
+            }
+
+            trabajadores[mayor]->imprimir();
+        }
+        else if(opc == 2) {
+            cout << "\nEmpleado peor pagado del proyecto" << endl;
+
+            int menor = 0;
+            for(int i=0; i<trabajadores.size(); i++) {
+                if(*trabajadores[i] < *trabajadores[menor]) {
+                    menor = i;
+                }
+            }
+
+            trabajadores[menor]->imprimir();
         }
         else {
             cout << "Opcion invalida!" << endl;
